@@ -1,0 +1,57 @@
+body {
+  background-color: #000000;
+  padding-top: 30px;
+}
+
+label{
+  color: white;
+  display: inline-block;
+  width: 300px;
+  text-align: left;
+}
+
+.wrapper div{
+  margin-bottom: 10px;
+}
+.input{
+  padding: 5px 5px;
+  border-radius: 3px;
+  float: right;
+}
+
+.load-video-btn{
+  background-color: #BB86FC;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+}
+
+.generate-btn{
+  background-color: #BB86FC;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 5px;
+}
+.wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+.container-iframe {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}

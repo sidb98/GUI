@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Timestamp Generator</title>
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+	<!-- Optional theme -->
+	<link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+		  integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet">
+	<!-- Latest compiled and minified JavaScript -->
+	<script crossorigin="anonymous"
+			integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!--<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">-->
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="wrapper">
+		<form class="atov" name="atov" action="#" style="margin:auto;max-width:500px" method="post">
+			<div>
+				<label>Youtube Link:</label> 
+				<input id="URL" type="text"  name="URL" placeholder="Enter a youtube link">
+		    	<button class="load-video-btn"  type="button" onclick="loadVideo(); return false;">Load Video</button>
+		    </div>
+		    <div>
+		    	<label>Maximum number of Timestamps:</label> 
+		    	<input  id="noofts" type="number" name="noofts" value="5">
+		    </div>
+		    <div>
+		    	<label>Minimum gap between two Timestamps:</label>
+		    	<input id="mingap" type="number" name="mingap" value="15">
+			</div>
+			<div>
+		    	<label>Concentration Constant: </label>
+		    	<input id="conc" type="number" name="conc" value="3">
+		    </div>
+		    <input class="generate-btn"id="sub" type="submit" value="Generate Topic Timestamps">
+		</form>
+	</div>
+
+	<div class="container-iframe">
+		<iframe class="iframe" id="iframe" src="" allowfullscreen ></iframe>
+		<br>
+	</div>
+	<p align="center">Generated Timestamps:<br>
+		<table>
+		<tr>
+			<th>Topic</th>
+			<th>Timestamp</th>
+		</tr>
+		{% if anslen > 0 %}
+			{% for i in finalTimeStamps %}
+				<tr>
+					<td> {{i[1]}} </td>
+					<td> {{i[0]}} </td>
+				</tr>
+			{% endfor %}
+		{% endif %}
+		</table>
+	</p>
+	
+<script>
+	function loadVideo(){
+		var URL=document.forms["atov"]["URL"].value;
+		URL=URL.substring(0,URL.indexOf("&"));
+		URL=URL.replace("watch?v=","embed/");
+		//document.forms["atov"]["URL"].value=URL;
+		if(URL=="" || URL == null){			
+			alert("Enter Valid Link");
+		}
+		else{
+			document.getElementById("iframe").src=URL;
+		}
+	}
+
+</script>>
+</body>
+</html>
